@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    background-color: #666;
+    padding: 20px;
+}
