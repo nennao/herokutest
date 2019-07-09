@@ -1,3 +1,5 @@
+let DATA = [];
+
 $( "#button" ).click(function() {
   // alert( "nice" );
   fetch('https://safe-crag-49936.herokuapp.com/data/random')
@@ -12,6 +14,38 @@ $( "#button" ).click(function() {
 $( "#button2" ).click(function() {
   // alert( "nice" );
   fetch('https://safe-crag-49936.herokuapp.com/data/post?name=nemes', {method: 'POST'})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+});
+
+$( "#button3" ).click(function() {
+  // alert( "nice" );
+  fetch('https://safe-crag-49936.herokuapp.com/data/random')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    const price = myJson['random'];
+    console.log(price);
+    DATA.push(price);
+    fetch(`/data/post2?price=${price}`, {method: 'POST'})
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      console.log(JSON.stringify(myJson));
+      console.log(DATA);
+    });
+  });
+});
+
+$( "#button4" ).click(function() {
+  // alert( "nice" );
+  fetch('/position?accountId=tester2')
   .then(function(response) {
     return response.json();
   })

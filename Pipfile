@@ -10,6 +10,8 @@ flask = "*"
 flask_cors = "*"
 gunicorn = "*"
 requests = "*"
+pymysql = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
